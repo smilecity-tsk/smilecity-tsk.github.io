@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СмайлCity | Отчёт по маркетингу за III квартал 2025 для арендаторов</title>
+    <meta name="description" content="Отчёт о продвижении ТЦ СмайлCity за III квартал 2025. Мы открыто делимся результатами, чтобы вместе расти и привлекать больше покупателей!">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #FF6B00;
+            --secondary: #FF8F00;
+            --accent: #FFD000;
+            --dark: #1A1A1A;
+            --light: #FFFFFF;
+            --gray: #F5F5F5;
+            --shadow: 0 15px 35px rgba(0,0,0,0.1);
+            --transition: all 0.4s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ЭСТЕТИЧНЫЙ ОСЕННИЙ ЛИСТОПАД НА ЗАДНЕМ ПЛАНЕ */
+        .leaves-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0; /* Под всем контентом */
+            overflow: hidden;
+        }
+
+        .leaf {
+            position: absolute;
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.4; /* Мягкая, атмосферная прозрачность */
+            animation: fall linear infinite, sway ease-in-out infinite alternate, gentle-wind linear infinite;
+            transform-origin: center center;
+        }
+
+        /* 40 листьев с индивидуальными настройками */
+        .leaf:nth-child(1)  { left: 2%;   width: 80px; height: 80px; animation-duration: 15s, 4s, 22s; animation-delay: 0s, 0s, 0s; background-image: url('https://www.pngmart.com/files/1/Fall-Autumn-Leaves-Transparent-PNG.png'); }
+        .leaf:nth-child(2)  { left: 8%;   width: 90px; height: 90px; animation-duration: 17s, 5s, 20s; animation-delay: 2s, 1s, 3s; background-image: url('https://www.pngmart.com/files/1/Autumn-Fall-Leaves-Pictures-Collage-PNG.png'); }
+        .leaf:nth-child(3)  { left: 14%;  width: 70px; height: 70px; animation-duration: 14s, 4.5s, 24s; animation-delay: 4s, 0s, 6s; background-image: url('https://www.pngmart.com/files/1/Autumn-Fall-Leaves-Clip-Art-PNG.png'); }
+        .leaf:nth-child(4)  { left: 20%;  width: 100px; height: 100px; animation-duration: 16s, 3.5s, 21s; animation-delay: 1s, 2s, 1s; background-image: url('https://pngimg.com/uploads/autumn_leaves/autumn_leaves_PNG3611.png'); }
+        .leaf:nth-child(5)  { left: 26%;  width: 75px; height: 75px; animation-duration: 18s, 5s, 23s; animation-delay: 6s, 0s, 8s; background-image: url('https://www.rawpixel.com/image/12653531/falling-maple-leaf-png-transparent-background'); }
+        .leaf:nth-child(6)  { left: 32%;  width: 85px; height: 85px; animation-duration: 13s, 4s, 19s; animation-delay: 3s, 1.5s, 2s; background-image: url('https://www.pngmart.com/files/1/Fall-Autumn-Leaves-Transparent-PNG.png'); }
+        .leaf:nth-child(7)  { left: 38%;  width: 90px; height: 90px; animation-duration: 19s, 3.8s, 25s; animation-delay: 5s, 0s, 4s; background-image: url('https://www.pngmart.com/files/1/Autumn-Fall-Leaves-Pictures-Collage-PNG.png'); }
+        .leaf:nth-child(8)  { left: 44%;  width: 80px; height: 80px; animation-duration: 15s, 4.2s, 22s; animation-delay: 0s, 1s, 0s; background-image: url('https://www.rawpixel.com/image/6536075/png-plant-aesthetic'); }
+        .leaf:nth-child(9)  { left: 50%;  width: 75px; height: 75px; animation-duration: 16s, 3.5s, 20s; animation-delay: 3s, 0.5s, 5s; background-image: url('https://pngimg.com/uploads/autumn_leaves/autumn_leaves_PNG3611.png'); }
+        .leaf:nth-child(10) { left: 56%;  width: 95px; height: 95px; animation-duration: 14s, 4.8s, 24s; animation-delay: 1s, 0s, 2s; background-image: url('https://www.pngmart.com/files/1/Autumn-Fall-Leaves-Clip-Art-PNG.png'); }
+        .leaf:nth-child(11) { left: 62%;  width: 70px; height: 70px; animation-duration: 17s, 4s, 21s; animation-delay: 4s, 1s, 7s; background-image: url('https://www.rawpixel.com/image/12653531/falling-maple-leaf-png-transparent-background'); }
+        .leaf:nth-child(12) { left: 68%;  width: 85px; height: 85px; animation-duration: 18s, 3.6s, 23s; animation-delay: 0s, 0s, 3s; background-image: url('https://www.pngmart.com/files/1/Fall-Autumn-Leaves-Transparent-PNG.png'); }
+        .leaf:nth-child(13) { left: 74%;  width: 90px; height: 90px; animation-duration: 15s, 4.5s, 19s; animation-delay: 2s, 1.5s, 1s; background-image: url('https://www.pngmart.com/files/1/Autumn-Fall-Leaves-Pictures-Collage-PNG.png'); }
+        .leaf:nth-child(14) { left: 80%;  width: 80px; height: 80px; animation-duration: 16s, 4s, 25s; animation-delay: 3s, 0s, 4s; background-image: url('https://pngimg.com/uploads/autumn_leaves/autumn_leaves_PNG3611.png'); }
+        .leaf:nth-child(15) { left: 86%;  width: 75px; height: 75px; animation-duration: 14s, 3.8s, 20s; animation-delay: 5s, 1s, 6s; background-image: url('https://www.rawpixel.com/image/6536075/png-plant-aesthetic'); }
+        .leaf:nth-child(16) { left: 92%;  width: 100px; height: 100px; animation-duration: 19s, 5s, 22s; animation-delay: 1s, 0s, 0s; background-image: url('https://www.pngmart.com/files/1/Autumn-Fall-Leaves-Clip-Art-PNG.png'); }
+        .leaf:nth-child(17) { left: 6%;   width: 85px; height: 85px; animation-duration: 16s, 4.2s, 24s; animation-delay: 4s, 1s, 5s; background-image: url('https://www.rawpixel.com/image/12653531/falling-maple-leaf-png-transparent-background'); }
+        .leaf:nth-child(18) { left: 18%;  width: 70px; height: 70px; animation-duration: 15s, 3.5s, 21s; animation-delay: 2s, 0s, 8s; background-image: url('https://www.pngmart.com/files/1/Fall-Autumn-Leaves-Transparent-PNG.png'); }
+        .leaf:nth-child(19) { left: 30%;  width: 90px; height: 90px; animation-duration: 18s, 4.8s, 23s; animation-delay: 3s, 1.5s, 2s; background-image: url('https://www.pngmart.com/files/1/Autumn-Fall-Leaves-Pictures-Collage-PNG.png'); }
+        .leaf:nth-child(20) { left: 42%;  width: 80px; height: 80px; animation-duration: 14s, 4s, 20s; animation-delay: 0s, 0s, 4s; background-image: url('https://pngimg.com/uploads/autumn_leaves/autumn_leaves_PNG3611.png'); }
+        .leaf:nth-child(21) { left: 52%;  width: 75px; height: 75px; animation-duration: 17s, 3.8s, 25s; animation-delay: 5s, 1s, 6s; background-image: url('https://www.rawpixel.com/image/6536075/png-plant-aesthetic'); }
+        .leaf:nth-child(22) { left: 64%;  width: 95px; height: 95px; animation-duration: 15s, 4.5s, 22s; animation-delay: 2s, 0s, 1s; background-image: url('https://www.pngmart.com/files/1/Autumn-Fall-Leaves-Clip-Art-PNG.png'); }
+        .leaf:nth-child(23) { left: 76%;  width: 70px; height: 70px; animation-duration: 19s, 3.6s, 21s; animation-delay: 3s, 1s, 7s; background-image: url('https://www.rawpixel.com/image/12653531/falling-maple-leaf-png-transparent-background'); }
+        .leaf:nth-child(24) { left: 88%;  width: 85px; height: 85px; animation-duration: 16s, 4.2s, 24s; animation-delay: 1s, 0s, 3s; background-image: url('https://www.pngmart.com/files/1/Fall-Autumn-Leaves-Transparent-PNG.png'); }
+        .leaf:nth-child(25) { left: 12%;  width: 90px; height: 90px; animation-duration: 14s, 5s, 20s; animation-delay: 6s, 1.5s, 5s; background-image: url('https://www.pngmart.com/files/1/Autumn-Fall-Leaves-Pictures-Collage-PNG.png'); }
+        .leaf:nth-child(26) { left: 24%;  width: 80px; height: 80px; animation-duration: 18s, 4s, 23s; animation-delay: 2s, 0s, 8s; background-image: url('https://pngimg.com/uploads/autumn_leaves/autumn_leaves_PNG3611.png'); }
+        .leaf:nth-child(27) { left: 36%;  width: 75px; height: 75px; animation-duration: 15s, 3.8s, 22s; animation-delay: 4s, 1s, 2s; background-image: url('https://www.rawpixel.com/image/6536075/png-plant-aesthetic'); }
+        .leaf:nth-child(28) { left: 48%;  width: 100px; height: 100px; animation-duration: 17s, 4.5s, 25s; animation-delay: 0s, 0s, 0s; background-image: url('https://www.pngmart.com/files/1/Autumn-Fall-Leaves-Clip-Art-PNG.png'); }
+        .leaf:nth-child(29) { left: 60%;  width: 70px; height: 70px; animation-duration: 16s, 4s, 21s; animation-delay: 5s, 1s, 6s; background-image: url('https://www.rawpixel.com/image/12653531/falling-maple-leaf-png-transparent-background'); }
+        .leaf:nth-child(30) { left: 72%;  width: 85px; height: 85px; animation-duration: 19s, 3.6s, 24s; animation-delay: 3s, 0s, 4s; background-image: url('https://www.pngmart.com/files/1/Fall-Autumn-Leaves-Transparent-PNG.png'); }
+        .leaf:nth-child(31) { left: 84%;  width: 90px; height: 90px; animation-duration: 15s, 4.8s, 20s; animation-delay: 2s, 1.5s, 1s; background-image: url('https://www.pngmart.com/files/1/Autumn-Fall-Leaves-Pictures-Collage-PNG.png'); }
+        .leaf:nth-child(32) { left: 96%;  width: 80px; height: 80px; animation-duration: 14s, 4s, 23s; animation-delay: 1s, 0s, 7s; background-image: url('https://pngimg.com/uploads/autumn_leaves/autumn_leaves_PNG3611.png'); }
+        .leaf:nth-child(33) { left: 4%;   width: 75px; height: 75px; animation-duration: 18s, 3.5s, 22s; animation-delay: 6s, 1s, 3s; background-image: url('https://www.rawpixel.com/image/6536075/png-plant-aesthetic'); }
+        .leaf:nth-child(34) { left: 16%;  width: 95px; height: 95px; animation-duration: 16s, 4.5s, 25s; animation-delay: 2s, 0s, 5s; background-image: url('https://www.pngmart.com/files/1/Autumn-Fall-Leaves-Clip-Art-PNG.png'); }
+        .leaf:nth-child(35) { left: 28%;  width: 70px; height: 70px; animation-duration: 17s, 4s, 21s; animation-delay: 4s, 1.5s, 8s; background-image: url('https://www.rawpixel.com/image/12653531/falling-maple-leaf-png-transparent-background'); }
+        .leaf:nth-child(36) { left: 40%;  width: 85px; height: 85px; animation-duration: 15s, 3.8s, 20s; animation-delay: 0s, 0s, 2s; background-image: url('https://www.pngmart.com/files/1/Fall-Autumn-Leaves-Transparent-PNG.png'); }
+        .leaf:nth-child(37) { left: 52%;  width: 90px; height: 90px; animation-duration: 19s, 4.2s, 24s; animation-delay: 5s, 1s, 0s; background-image: url('https://www.pngmart.com/files/1/Autumn-Fall-Leaves-Pictures-Collage-PNG.png'); }
+        .leaf:nth-child(38) { left: 66%;  width: 80px; height: 80px; animation-duration: 16s, 5s, 23s; animation-delay: 3s, 0s, 6s; background-image: url('https://pngimg.com/uploads/autumn_leaves/autumn_leaves_PNG3611.png'); }
+        .leaf:nth-child(39) { left: 78%;  width: 75px; height: 75px; animation-duration: 14s, 4s, 22s; animation-delay: 2s, 1s, 4s; background-image: url('https://www.rawpixel.com/image/6536075/png-plant-aesthetic'); }
+        .leaf:nth-child(40) { left: 90%;  width: 100px; height: 100px; animation-duration: 18s, 3.5s, 25s; animation-delay: 1s, 0s, 1s; background-image: url('https://www.pngmart.com/files/1/Autumn-Fall-Leaves-Clip-Art-PNG.png'); }
+
+        @keyframes fall {
+            0% {
+                top: -15%;
+                opacity: 0;
+                transform: rotate(0deg) scale(0.7);
+            }
+            8% {
+                opacity: 0.4;
+                transform: scale(1);
+            }
+            92% {
+                opacity: 0.4;
+            }
+            100% {
+                top: 110%;
+                opacity: 0;
+                transform: rotate(1080deg) scale(1);
+            }
+        }
+
+        @keyframes sway {
+            0% { transform: rotate(-18deg); }
+            100% { transform: rotate(18deg); }
+        }
+
+        @keyframes gentle-wind {
+            0% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(100px) translateY(30px); }
+            50% { transform: translateX(150px) translateY(-20px); }
+            75% { transform: translateX(60px) translateY(50px); }
+            100% { transform: translateX(0) translateY(0); }
+        }
+
+        /* Основные стили */
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        h1 {
+            color: white;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10; /* Над листьями */
+        }
+
+        /* Hero и остальные стили остаются без изменений */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            background: linear-gradient(135deg, rgba(255,107,0,0.85), rgba(255,143,0,0.75)), url('GH6A2610.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(transparent, var(--light));
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 25px;
+            text-shadow: 0 6px 15px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.8rem;
+            max-width: 900px;
+            margin: 0 auto 50px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 18px 50px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(255,208,0,0.4);
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(255,208,0,0.5);
+        }
+
+        section {
+            padding: 120px 0;
+        }
+
+        .bg-gray {
+            background: var(--gray);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            font-size: 3.5rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 100px;
+            height: 5px;
+            background: var(--accent);
+            display: block;
+            margin: 20px auto 0;
+            border-radius: 3px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.4rem;
+            max-width: 1000px;
+            margin: 0 auto 50px;
+            color: #666;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 177.78%;
+            height: 0;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 28px 28px 0 0;
+        }
+
+        .card-body {
+            padding: 35px;
+        }
+
+        .card h3 {
+            font-size: 2rem;
+            margin-bottom: 18px;
+        }
+
+        .card p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 35px;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .stat {
+            padding: 50px 25px;
+            background: white;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .stat:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .cta {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 140px 0;
+        }
+
+        .cta h2 {
+            font-size: 3.8rem;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .cta p {
+            font-size: 1.6rem;
+            max-width: 900px;
+            margin: 0 auto 60px;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 40px;
+            text-align: center;
+        }
+
+        footer p:first-child {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .hero h1 { font-size: 4rem; }
+            .hero p { font-size: 1.5rem; }
+            .section-title { font-size: 3rem; }
+        }
+
+        @media (max-width: 768px) {
+            .hero { height: 90vh; min-height: 600px; }
+            .hero h1 { font-size: 3.2rem; }
+            .hero p { font-size: 1.3rem; padding: 0 20px; }
+            section { padding: 80px 0; }
+            .section-title { font-size: 2.6rem; }
+            .section-subtitle { font-size: 1.2rem; }
+            .cards { gap: 30px; }
+            .card-body { padding: 25px; }
+            .card h3 { font-size: 1.8rem; }
+            .cta { padding: 100px 0; }
+            .cta h2 { font-size: 3rem; }
+            .cta p { font-size: 1.4rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2.8rem; }
+            .btn { padding: 15px 40px; font-size: 1.1rem; }
+            .section-title { font-size: 2.3rem; }
+            .stats { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Осенний листопад на заднем плане -->
+    <div class="leaves-container">
+        <div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div>
+        <div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div>
+        <div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div>
+        <div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div>
+        <div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div>
+        <div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div>
+        <div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div>
+        <div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div>
+    </div>
+
+    <!-- Остальной контент без изменений -->
+    <section class="hero" data-aos="fade-down">
+        <div class="container">
+            <h1>Отчёт по маркетингу<br>III квартал 2025</h1>
+            <p>Дорогие арендаторы! Мы гордимся результатами совместной работы и открыто делимся ими с вами. Вместе мы делаем СмайлCity ярче и привлекательнее для тысяч покупателей!</p>
+            <a href="https://t.me/+wGJxoyuwTFthYmNi" class="btn" data-aos="fade-up" data-aos-delay="400">Предложить нам идею</a>
+        </div>
+    </section>
+
+    <section id="results">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Мы работаем для вашего успеха</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Каждое наше мероприятие тщательно планируется с учётом сезона, интересов аудитории и актуальных трендов. 
+                Мы отслеживаем ключевые показатели, чтобы понимать, что действительно работает и приносит больше гостей в наш торговый центр.
+            </p>
+        </div>
+    </section>
+
+    <section class="bg-gray">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Яркая акция «Листопад подарков»</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+                В августе–сентябре мы провели большую стимулирующую акцию, чтобы повысить лояльность покупателей и средний чек. 
+                За покупки от 2 000 ₽ гости получали купон на розыгрыш ценных призов — MacBook и умные колонки!
+            </p>
+
+            <div class="cards">
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="video-container">
+                        <video src="Уже завтра пройдет финал.mp4" autoplay muted loop playsinline></video>
+                    </div>
+                    <div class="card-body">
+                        <h3>Масштабная рекламная кампания</h3>
+                        <p>Баннеры и плакаты в ТЦ, аудиореклама, таргетированная реклама, email-рассылка — всё запущено за 2 недели до старта, чтобы максимально привлечь внимание.</p>
+                    </div>
+                </div>
+
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="video-container">
+                        <video src="Подведены итоги нашей яркой осени!.mp4" autoplay muted loop playsinline></video>
+                    </div>
+                    <div class="card-body">
+                        <h3>на 29% больше посетителей!</h3>
+                        <p>Покупатели активно участвовали в розыгрыше — это почти треть дополнительных поводов прийти в СмайлCity именно к вам.</p>
+                    </div>
+                </div>
+
+                <div class="card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="video-container">
+                        <video src="Поздравляем победителей акции СМАЙЛcity! Мы искренне радуемся каждому вашему успеху и гордимся, .mp4" autoplay muted loop playsinline></video>
+                    </div>
+                    <div class="card-body">
+                        <h3>Рост лояльности покупателей</h3>
+                        <p>После проведения акций у участников в разы увеличивается мотивация возвращаться и покупать именно у нас!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Активная жизнь в соцсетях</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Мы регулярно публикуем яркий тематический контент, проводим игры и сотрудничаем с креаторами, чтобы наше сообщество росло и оставалось живым.
+            </p>
+
+            <div class="stats">
+                <div class="stat" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stat-number">+4,9%</div>
+                    <p>рост среднего охвата в Instagram</p>
+                </div>
+                <div class="stat" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stat-number">803</div>
+                    <p>средний охват постов в III квартале</p>
+                </div>
+            </div>
+
+            <div class="cards">
+                <div class="card" data-aos="fade-right">
+                    <div class="video-container">
+                        <video src="Одним солнечным.mp4" autoplay muted loop playsinline></video>
+                    </div>
+                    <div class="card-body">
+                        <h3>Ежемесячные видео с ТЦ</h3>
+                        <p>Ярко демонстрируем красоту, удобства и атмосферу нашего торгового центра!</p>
+                    </div>
+                </div>
+
+                <div class="card" data-aos="fade-left">
+                    <div class="video-container">
+                        <video src="Уже 20 сентября определим победителей акции «Листопад подарков»!За каждые 2000₽ в чеке получаете.mp4" autoplay muted loop playsinline></video>
+                    </div>
+                    <div class="card-body">
+                        <h3>Активно продвигаем именно Вас!</h3>
+                        <p>Во время акций мы строим живое сообщество вокруг ТЦ и привлекаем новых покупателей к вашим магазинам.</p>
+                    </div>
+                </div>
+
+                <div class="card" data-aos="fade-up">
+                    <div class="video-container">
+                        <video src="hehheh.mp4" autoplay muted loop playsinline></video>
+                    </div>
+                    <div class="card-body">
+                        <h3>Сотрудничество с креаторами</h3>
+                        <p>Ролики с блогерами набирают <h2>в 3,6 раза больше просмотров,</h2> чем обычные посты. Это свежий и привлекательный контент для нашей аудитории!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2 data-aos="fade-up">Давайте делать ещё больше вместе!</h2>
+            <p data-aos="fade-up" data-aos-delay="200">
+                Присылайте свои акции — мы опубликуем их в наших соцсетях и на сайте.<br>
+                Хотите стать партнёром мероприятия или сняться у блогера? Мы всегда открыты к идеям!
+            </p>
+            <a href="https://t.me/+wGJxoyuwTFthYmNi" class="btn" data-aos="fade-up" data-aos-delay="400">Написать нам идею</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>СмайлCity — вместе мы сильнее!</p>
+            <p>© 2025 ТЦ СмайлCity. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-out-quart',
+            once: true
+        });
+    </script>
+</body>
+</html>
